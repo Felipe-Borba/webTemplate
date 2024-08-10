@@ -1,6 +1,6 @@
 package com.felipeborba.webTemplate.security;
 
-import com.felipeborba.webTemplate.user.UserRepository;
+import com.felipeborba.webTemplate.user.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

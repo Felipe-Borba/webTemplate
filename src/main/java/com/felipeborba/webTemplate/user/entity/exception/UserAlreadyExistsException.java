@@ -1,4 +1,4 @@
-package com.felipeborba.webTemplate.user.exception;
+package com.felipeborba.webTemplate.user.entity.exception;
 
 import com.felipeborba.webTemplate.exception.ApiException;
 import org.springframework.http.HttpStatus;

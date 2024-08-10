@@ -1,4 +1,4 @@
-package com.felipeborba.webTemplate.user;
+package com.felipeborba.webTemplate.user.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

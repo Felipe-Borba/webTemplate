@@ -1,7 +1,7 @@
 package com.felipeborba.webTemplate.security;
 
-import com.felipeborba.webTemplate.user.User;
-import com.felipeborba.webTemplate.user.UserRepository;
+import com.felipeborba.webTemplate.user.entity.User;
+import com.felipeborba.webTemplate.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,5 +1,6 @@
-package com.felipeborba.webTemplate.user;
+package com.felipeborba.webTemplate.user.controller;
 
+import com.felipeborba.webTemplate.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
