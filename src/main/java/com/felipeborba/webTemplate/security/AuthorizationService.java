@@ -1,8 +1,12 @@
 package com.felipeborba.webTemplate.security;
 
+import com.felipeborba.webTemplate.security.dto.LoginRequestDto;
+import com.felipeborba.webTemplate.security.dto.LoginResponseDto;
 import com.felipeborba.webTemplate.user.entity.User;
 import com.felipeborba.webTemplate.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +19,12 @@ public class AuthorizationService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByLogin(username);
@@ -23,5 +33,14 @@ public class AuthorizationService implements UserDetailsService {
     public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return (User) authentication.getPrincipal();
+    }
+
+    public LoginResponseDto login(LoginRequestDto data) {
+        var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
+        var auth = this.authenticationManager.authenticate(usernamePassword);
+
+        var token = tokenService.generateToken((User) auth.getPrincipal());
+
+        return new LoginResponseDto(token);
     }
 }
