@@ -15,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "tb_product")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Product implements Serializable {
+public class Product implements Serializable { //TODO eu posso fazer uma classe mae que o produto e category herdam com dados de auditoria e esses anotations do lombook e talvez ate deixa o @Entity lá e lá implementa o serializable?
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
