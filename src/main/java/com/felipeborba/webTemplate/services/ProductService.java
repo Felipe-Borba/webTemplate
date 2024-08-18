@@ -1,7 +1,10 @@
 package com.felipeborba.webTemplate.services;
 
+import com.felipeborba.webTemplate.dto.CategoryDTO;
 import com.felipeborba.webTemplate.dto.ProductDTO;
+import com.felipeborba.webTemplate.entities.Category;
 import com.felipeborba.webTemplate.entities.Product;
+import com.felipeborba.webTemplate.repositories.CategoryRepository;
 import com.felipeborba.webTemplate.repositories.ProductRepository;
 import com.felipeborba.webTemplate.services.exceptions.DatabaseException;
 import com.felipeborba.webTemplate.services.exceptions.ResourceNotFoundException;
@@ -18,6 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Transactional(readOnly = true)
     public Page<ProductDTO> findAllPaged(PageRequest pageRequest) {
@@ -34,8 +39,7 @@ public class ProductService {
     @Transactional
     public ProductDTO insert(ProductDTO dto) {
         Product product = new Product();
-        product.setName(dto.getName());
-        //TODO
+        copyDtoToEntity(dto, product);
         product = this.productRepository.save(product);
         return new ProductDTO(product);
     }
@@ -44,8 +48,7 @@ public class ProductService {
     public ProductDTO update(Long id, ProductDTO dto) {
         try {
             Product product = this.productRepository.getReferenceById(id);
-            product.setName(dto.getName());
-            //TODO
+            copyDtoToEntity(dto, product);
             product = this.productRepository.save(product);
             return new ProductDTO(product);
         } catch (EntityNotFoundException e) {
@@ -63,4 +66,17 @@ public class ProductService {
         }
     }
 
+    private void copyDtoToEntity(ProductDTO dto, Product product) {
+        product.setName(dto.getName());
+        product.setDescription(dto.getDescription());
+        product.setDate(dto.getDate());
+        product.setImgUrl(dto.getImgUrl());
+        product.setPrice(dto.getPrice());
+
+        product.getCategories().clear();
+        for (CategoryDTO catDto : dto.getCategories()) {
+            Category category = this.categoryRepository.getReferenceById(catDto.getId());
+            product.getCategories().add(category);
+        }
+    }
 }
