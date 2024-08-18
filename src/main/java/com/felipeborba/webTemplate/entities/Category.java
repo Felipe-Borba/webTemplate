@@ -22,9 +22,11 @@ public class Category implements Serializable {
 
     private String name;
 
+    @Setter(AccessLevel.NONE)
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant createdAt;
 
+    @Setter(AccessLevel.NONE)
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant updatedAt;
 
