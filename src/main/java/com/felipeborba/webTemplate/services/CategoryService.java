@@ -3,6 +3,7 @@ package com.felipeborba.webTemplate.services;
 import com.felipeborba.webTemplate.dto.CategoryDTO;
 import com.felipeborba.webTemplate.entities.Category;
 import com.felipeborba.webTemplate.repositories.CategoryRepository;
+import com.felipeborba.webTemplate.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +24,7 @@ public class CategoryService {
 
     @Transactional(readOnly = true)
     public CategoryDTO findById(Long id) {
-        Category category = this.categoryRepository.findById(id).orElseThrow();
+        Category category = this.categoryRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Entity no found"));
         return new CategoryDTO(category);
     }
 }
