@@ -1,11 +1,15 @@
 package com.felipeborba.webTemplate.resouces;
 
+import com.felipeborba.webTemplate.dto.CategoryDTO;
 import com.felipeborba.webTemplate.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/categories")
@@ -14,7 +18,12 @@ public class CaregoryResource {
     CategoryService categoryService;
 
     @GetMapping
-    public ResponseEntity<?> findAll() {
+    public ResponseEntity<List<CategoryDTO>> findAll() {
         return ResponseEntity.ok().body(this.categoryService.findAll());
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<CategoryDTO> findById(@PathVariable Long id) {
+        return ResponseEntity.ok().body(this.categoryService.findById(id));
     }
 }

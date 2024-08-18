@@ -1,5 +1,6 @@
 package com.felipeborba.webTemplate.services;
 
+import com.felipeborba.webTemplate.dto.CategoryDTO;
 import com.felipeborba.webTemplate.entities.Category;
 import com.felipeborba.webTemplate.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,15 @@ public class CategoryService {
     private CategoryRepository categoryRepository;
 
     @Transactional(readOnly = true)
-    public List<Category> findAll() {
-        return this.categoryRepository.findAll();
+    public List<CategoryDTO> findAll() {
+        List<Category> list = this.categoryRepository.findAll();
+
+        return list.stream().map(CategoryDTO::new).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public CategoryDTO findById(Long id) {
+        Category category = this.categoryRepository.findById(id).orElseThrow();
+        return new CategoryDTO(category);
     }
 }
