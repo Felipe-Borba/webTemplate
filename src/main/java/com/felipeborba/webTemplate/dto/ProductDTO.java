@@ -23,7 +23,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class ProductDTO implements Serializable {
     private Long id;
-    @Size(min = 5, max = 60, message = "Deve ter entre 5 e 60 caracteres")//TODO é possivel externalizar essas mensagens em um arquivo de config (para padronizar e internacionalizar) e customizar a mensagem de error
+    @Size(min = 5, max = 60, message = "Deve ter entre 5 e 60 caracteres") //TODO é possivel externalizar essas mensagens em um arquivo de config (para padronizar e internacionalizar)
     @NotBlank(message = "Campo requerido")
     private String name;
     @NotBlank(message = "Campo requerido")

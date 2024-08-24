@@ -2,6 +2,7 @@ package com.felipeborba.webTemplate.resouces;
 
 import com.felipeborba.webTemplate.dto.UserDTO;
 import com.felipeborba.webTemplate.dto.UserInsertDTO;
+import com.felipeborba.webTemplate.dto.UserUpdateDTO;
 import com.felipeborba.webTemplate.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,9 +39,9 @@ public class UserResource {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody @Valid UserDTO dto) {
-        dto = this.userService.update(id, dto);
-        return ResponseEntity.ok().body(dto);
+    public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody @Valid UserUpdateDTO dto) {
+        UserDTO newDto = this.userService.update(id, dto);
+        return ResponseEntity.ok().body(newDto);
     }
 
     @DeleteMapping(value = "/{id}")

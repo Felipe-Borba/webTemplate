@@ -3,6 +3,7 @@ package com.felipeborba.webTemplate.services;
 import com.felipeborba.webTemplate.dto.RoleDTO;
 import com.felipeborba.webTemplate.dto.UserDTO;
 import com.felipeborba.webTemplate.dto.UserInsertDTO;
+import com.felipeborba.webTemplate.dto.UserUpdateDTO;
 import com.felipeborba.webTemplate.entities.Role;
 import com.felipeborba.webTemplate.entities.User;
 import com.felipeborba.webTemplate.repositories.RoleRepository;
@@ -50,7 +51,7 @@ public class UserService {
     }
 
     @Transactional
-    public UserDTO update(Long id, UserDTO dto) {
+    public UserDTO update(Long id, UserUpdateDTO dto) {
         try {
             User user = this.userRepository.getReferenceById(id);
             copyDtoToEntity(dto, user);
