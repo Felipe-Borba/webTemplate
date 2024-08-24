@@ -1,11 +1,11 @@
 package com.felipeborba.webTemplate.dto;
 
-import com.felipeborba.webTemplate.entities.Role;
 import com.felipeborba.webTemplate.entities.User;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -15,8 +15,10 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserDTO implements Serializable {
     private Long id;
+    @NotBlank(message = "Campo obrigatório")
     private String firstName;
     private String lastName;
+    @Email(message = "Favor entrar um email válido")
     private String email;
     @Setter(AccessLevel.NONE)
     private Set<RoleDTO> roles;

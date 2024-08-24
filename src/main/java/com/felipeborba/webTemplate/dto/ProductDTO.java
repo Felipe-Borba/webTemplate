@@ -2,7 +2,14 @@ package com.felipeborba.webTemplate.dto;
 
 import com.felipeborba.webTemplate.entities.Category;
 import com.felipeborba.webTemplate.entities.Product;
-import lombok.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -16,10 +23,15 @@ import java.util.Set;
 @AllArgsConstructor
 public class ProductDTO implements Serializable {
     private Long id;
+    @Size(min = 5, max = 60, message = "Deve ter entre 5 e 60 caracteres")//TODO é possivel externalizar essas mensagens em um arquivo de config (para padronizar e internacionalizar) e customizar a mensagem de error
+    @NotBlank(message = "Campo requerido")
     private String name;
+    @NotBlank(message = "Campo requerido")
     private String description;
+    @Positive(message = "Preço deve ser um valor positivo")
     private Double price;
     private String imgUrl;
+    @PastOrPresent(message = "A data do prodoto não pode ser furuta")
     private Instant date;
 
     private List<CategoryDTO> categories = new ArrayList<>();
