@@ -1,6 +1,6 @@
 package com.felipeborba.webTemplate.dto;
 
-import com.devsuperior.dslearnbds.entities.Notification;
+import com.felipeborba.webTemplate.entities.Notification;
 
 import java.io.Serializable;
 import java.time.Instant;

@@ -1,9 +1,10 @@
 package com.felipeborba.webTemplate.resources.exceptions;
 
-import com.devsuperior.dslearnbds.services.exceptions.DatabaseException;
-import com.devsuperior.dslearnbds.services.exceptions.ForbiddenException;
-import com.devsuperior.dslearnbds.services.exceptions.ResourceNotFoundException;
-import com.devsuperior.dslearnbds.services.exceptions.UnauthorizedException;
+import com.felipeborba.webTemplate.services.exceptions.DatabaseException;
+import com.felipeborba.webTemplate.services.exceptions.ForbiddenException;
+import com.felipeborba.webTemplate.services.exceptions.ResourceNotFoundException;
+import com.felipeborba.webTemplate.services.exceptions.UnauthorizedException;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;
 
 @ControllerAdvice

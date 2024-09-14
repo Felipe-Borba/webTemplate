@@ -1,6 +1,6 @@
 package com.felipeborba.webTemplate.dto;
 
-import com.devsuperior.dslearnbds.entities.enums.DeliverStatus;
+import com.felipeborba.webTemplate.entities.enums.DeliverStatus;
 
 import java.io.Serializable;
 

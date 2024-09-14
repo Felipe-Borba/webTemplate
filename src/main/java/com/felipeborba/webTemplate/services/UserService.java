@@ -1,9 +1,9 @@
 package com.felipeborba.webTemplate.services;
 
-import com.devsuperior.dslearnbds.dto.UserDTO;
-import com.devsuperior.dslearnbds.entities.User;
-import com.devsuperior.dslearnbds.repositories.UserRepository;
-import com.devsuperior.dslearnbds.services.exceptions.ResourceNotFoundException;
+import com.felipeborba.webTemplate.dto.UserDTO;
+import com.felipeborba.webTemplate.entities.User;
+import com.felipeborba.webTemplate.repositories.UserRepository;
+import com.felipeborba.webTemplate.services.exceptions.ResourceNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,7 @@
 package com.felipeborba.webTemplate.entities;
 
-import com.devsuperior.dslearnbds.entities.enums.ResourceType;
-
-import javax.persistence.*;
+import com.felipeborba.webTemplate.entities.enums.ResourceType;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

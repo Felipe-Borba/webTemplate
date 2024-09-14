@@ -1,8 +1,8 @@
 package com.felipeborba.webTemplate.entities;
 
-import com.devsuperior.dslearnbds.entities.enums.DeliverStatus;
 
-import javax.persistence.*;
+import com.felipeborba.webTemplate.entities.enums.DeliverStatus;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 

@@ -1,8 +1,8 @@
 package com.felipeborba.webTemplate.services;
 
-import com.devsuperior.dslearnbds.dto.DeliverRevisionDTO;
-import com.devsuperior.dslearnbds.entities.Deliver;
-import com.devsuperior.dslearnbds.repositories.DeliverRepository;
+import com.felipeborba.webTemplate.dto.DeliverRevisionDTO;
+import com.felipeborba.webTemplate.entities.Deliver;
+import com.felipeborba.webTemplate.repositories.DeliverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;

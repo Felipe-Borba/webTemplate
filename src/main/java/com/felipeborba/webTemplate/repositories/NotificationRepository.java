@@ -1,7 +1,7 @@
 package com.felipeborba.webTemplate.repositories;
 
-import com.devsuperior.dslearnbds.entities.Notification;
-import com.devsuperior.dslearnbds.entities.User;
+import com.felipeborba.webTemplate.entities.Notification;
+import com.felipeborba.webTemplate.entities.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

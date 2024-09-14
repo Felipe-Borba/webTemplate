@@ -1,9 +1,9 @@
 package com.felipeborba.webTemplate.services;
 
-import com.devsuperior.dslearnbds.dto.NotificationDTO;
-import com.devsuperior.dslearnbds.entities.Notification;
-import com.devsuperior.dslearnbds.entities.User;
-import com.devsuperior.dslearnbds.repositories.NotificationRepository;
+import com.felipeborba.webTemplate.dto.NotificationDTO;
+import com.felipeborba.webTemplate.entities.Notification;
+import com.felipeborba.webTemplate.entities.User;
+import com.felipeborba.webTemplate.repositories.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,6 +1,6 @@
 package com.felipeborba.webTemplate.dto;
 
-import com.devsuperior.dslearnbds.entities.User;
+import com.felipeborba.webTemplate.entities.User;
 
 import java.io.Serializable;
 

@@ -1,7 +1,7 @@
 package com.felipeborba.webTemplate.resources;
 
-import com.devsuperior.dslearnbds.dto.DeliverRevisionDTO;
-import com.devsuperior.dslearnbds.services.DeliverService;
+import com.felipeborba.webTemplate.dto.DeliverRevisionDTO;
+import com.felipeborba.webTemplate.services.DeliverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

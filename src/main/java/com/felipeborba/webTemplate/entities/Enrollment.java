@@ -1,8 +1,8 @@
 package com.felipeborba.webTemplate.entities;
 
-import com.devsuperior.dslearnbds.entities.pk.EnrollmentPK;
 
-import javax.persistence.*;
+import com.felipeborba.webTemplate.entities.pk.EnrollmentPK;
+import jakarta.persistence.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashSet;

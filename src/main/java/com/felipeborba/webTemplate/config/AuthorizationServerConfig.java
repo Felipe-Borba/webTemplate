@@ -1,6 +1,6 @@
 package com.felipeborba.webTemplate.config;
 
-import com.devsuperior.dslearnbds.components.JwtTokenEnhancer;
+import com.felipeborba.webTemplate.components.JwtTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

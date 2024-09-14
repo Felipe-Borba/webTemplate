@@ -1,7 +1,7 @@
 package com.felipeborba.webTemplate.components;
 
-import com.devsuperior.dslearnbds.entities.User;
-import com.devsuperior.dslearnbds.repositories.UserRepository;
+import com.felipeborba.webTemplate.entities.User;
+import com.felipeborba.webTemplate.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;

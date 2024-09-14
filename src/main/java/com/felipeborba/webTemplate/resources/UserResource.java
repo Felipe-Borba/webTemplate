@@ -1,7 +1,7 @@
 package com.felipeborba.webTemplate.resources;
 
-import com.devsuperior.dslearnbds.dto.UserDTO;
-import com.devsuperior.dslearnbds.services.UserService;
+import com.felipeborba.webTemplate.dto.UserDTO;
+import com.felipeborba.webTemplate.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

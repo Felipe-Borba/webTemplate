@@ -1,6 +1,6 @@
 package com.felipeborba.webTemplate.entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
