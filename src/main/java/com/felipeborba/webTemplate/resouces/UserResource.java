@@ -1,8 +1,6 @@
 package com.felipeborba.webTemplate.resouces;
 
-import com.felipeborba.webTemplate.dto.UserDTO;
-import com.felipeborba.webTemplate.dto.UserInsertDTO;
-import com.felipeborba.webTemplate.dto.UserUpdateDTO;
+import com.felipeborba.webTemplate.dto.*;
 import com.felipeborba.webTemplate.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +46,11 @@ public class UserResource {
     public ResponseEntity<UserDTO> delete(@PathVariable Long id) {
         this.userService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO dto) {
+        LoginResponseDTO response = userService.login(dto);
+        return ResponseEntity.ok().body(response);
     }
 }

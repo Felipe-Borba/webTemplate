@@ -1,9 +1,6 @@
 package com.felipeborba.webTemplate.services;
 
-import com.felipeborba.webTemplate.dto.RoleDTO;
-import com.felipeborba.webTemplate.dto.UserDTO;
-import com.felipeborba.webTemplate.dto.UserInsertDTO;
-import com.felipeborba.webTemplate.dto.UserUpdateDTO;
+import com.felipeborba.webTemplate.dto.*;
 import com.felipeborba.webTemplate.entities.Role;
 import com.felipeborba.webTemplate.entities.User;
 import com.felipeborba.webTemplate.repositories.RoleRepository;
@@ -17,8 +14,14 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtClaimsSet;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Instant;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -28,6 +31,8 @@ public class UserService {
     private RoleRepository roleRepository;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private JwtEncoder jwtEncoder;
 
     @Transactional(readOnly = true)
     public Page<UserDTO> findAllPaged(Pageable pageRequest) {
@@ -60,6 +65,36 @@ public class UserService {
         } catch (EntityNotFoundException e) {
             throw new ResourceNotFoundException("Id not found");
         }
+    }
+
+    @Transactional(readOnly = true)
+    public LoginResponseDTO login(LoginRequestDTO dto) {
+        User user = userRepository.findByEmail(dto.getEmail());
+        if (user == null) {
+            throw new ResourceNotFoundException("Email or password incorrect");
+        }
+        if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
+            throw new ResourceNotFoundException("Email or password incorrect");
+        }
+
+        Instant now = Instant.now();
+        long expiresIn = 86400L;
+
+        String scopes = user.getRoles()
+                .stream()
+                .map(Role::getAuthority)
+                .collect(Collectors.joining(" "));
+
+        JwtClaimsSet claims = JwtClaimsSet.builder()
+                .issuer("mybackend")
+                .subject(user.getId().toString())
+                .issuedAt(now)
+                .expiresAt(now.plusSeconds(expiresIn))
+                .claim("scope", scopes)
+                .build();
+
+        String jwtValue = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+        return new LoginResponseDTO(jwtValue, expiresIn);
     }
 
     public void delete(Long id) {
