@@ -14,6 +14,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,7 @@ public class ProductService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @PreAuthorize("hasAnyRole('ADMIN','OPERATOR')")
     @Transactional(readOnly = true)
     public Page<ProductDTO> findAllPaged(Pageable pageRequest) {
         Page<Product> list = this.productRepository.findAll(pageRequest);
@@ -55,7 +57,6 @@ public class ProductService {
             throw new ResourceNotFoundException("Id not found");
         }
     }
-
     public void delete(Long id) {
         try {
             this.productRepository.deleteById(id);

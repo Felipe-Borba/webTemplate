@@ -4,6 +4,8 @@ import com.felipeborba.webTemplate.dto.*;
 import com.felipeborba.webTemplate.entities.Role;
 import com.felipeborba.webTemplate.entities.User;
 import com.felipeborba.webTemplate.repositories.RoleRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.felipeborba.webTemplate.repositories.UserRepository;
 import com.felipeborba.webTemplate.services.exceptions.DatabaseException;
 import com.felipeborba.webTemplate.services.exceptions.ResourceNotFoundException;
@@ -25,6 +27,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService {
+    private static Logger logger = LoggerFactory.getLogger(UserService.class);
+
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -33,6 +37,8 @@ public class UserService {
     private BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private JwtEncoder jwtEncoder;
+    @Autowired
+    private AuthService authService;
 
     @Transactional(readOnly = true)
     public Page<UserDTO> findAllPaged(Pageable pageRequest) {
@@ -42,6 +48,7 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public UserDTO findById(Long id) {
+        authService.validateSelfOrAdmin(id);
         User user = this.userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Entity no found"));
         return new UserDTO(user);
     }
@@ -71,8 +78,10 @@ public class UserService {
     public LoginResponseDTO login(LoginRequestDTO dto) {
         User user = userRepository.findByEmail(dto.getEmail());
         if (user == null) {
+            logger.error("User not found: " + dto.getEmail());
             throw new ResourceNotFoundException("Email or password incorrect");
         }
+        logger.info("User found: " + user.getId());
         if (!passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
             throw new ResourceNotFoundException("Email or password incorrect");
         }
