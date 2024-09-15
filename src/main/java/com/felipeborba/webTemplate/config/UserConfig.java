@@ -19,6 +19,6 @@ public class UserConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.userService.createUser(adminLogin, adminPassword, UserRole.ADMIN);
+        this.userService.insert(adminLogin, adminPassword, UserRole.ADMIN);
     }
 }

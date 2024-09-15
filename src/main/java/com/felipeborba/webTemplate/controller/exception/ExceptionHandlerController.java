@@ -15,6 +15,7 @@ public class ExceptionHandlerController extends ResponseEntityExceptionHandler {
         return new ExeptionResponseDto(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, 0).toResponseEntity();
     }
 
+    //TODO does not work anymore
     @ExceptionHandler(AuthorizationDeniedException.class)
     public ResponseEntity<ExeptionResponseDto> authorizationDeniedHandles(AuthorizationDeniedException exception) {
         return new ExeptionResponseDto(exception.getMessage(), HttpStatus.UNAUTHORIZED, 1001).toResponseEntity();
