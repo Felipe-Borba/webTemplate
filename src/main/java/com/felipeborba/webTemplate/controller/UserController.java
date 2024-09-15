@@ -1,8 +1,8 @@
-package com.felipeborba.webTemplate.user.controller;
+package com.felipeborba.webTemplate.controller;
 
 import com.felipeborba.webTemplate.user.dto.CreateUserRequestDto;
-import com.felipeborba.webTemplate.user.entity.User;
-import com.felipeborba.webTemplate.user.service.UserService;
+import com.felipeborba.webTemplate.entity.User;
+import com.felipeborba.webTemplate.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

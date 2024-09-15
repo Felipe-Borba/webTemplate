@@ -1,6 +1,6 @@
 package com.felipeborba.webTemplate.user.controller;
 
-import com.felipeborba.webTemplate.user.repository.UserRepository;
+import com.felipeborba.webTemplate.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

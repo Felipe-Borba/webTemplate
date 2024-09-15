@@ -1,4 +1,4 @@
-package com.felipeborba.webTemplate.exception;
+package com.felipeborba.webTemplate.controller.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

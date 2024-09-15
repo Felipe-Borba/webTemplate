@@ -1,9 +1,9 @@
-package com.felipeborba.webTemplate.user.service;
+package com.felipeborba.webTemplate.service;
 
-import com.felipeborba.webTemplate.user.entity.User;
-import com.felipeborba.webTemplate.user.entity.UserRole;
-import com.felipeborba.webTemplate.user.entity.exception.UserAlreadyExistsException;
-import com.felipeborba.webTemplate.user.repository.UserRepository;
+import com.felipeborba.webTemplate.entity.User;
+import com.felipeborba.webTemplate.entity.UserRole;
+import com.felipeborba.webTemplate.service.exception.UserAlreadyExistsException;
+import com.felipeborba.webTemplate.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

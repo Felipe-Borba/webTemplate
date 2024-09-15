@@ -1,4 +1,4 @@
-package com.felipeborba.webTemplate.exception;
+package com.felipeborba.webTemplate.controller.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

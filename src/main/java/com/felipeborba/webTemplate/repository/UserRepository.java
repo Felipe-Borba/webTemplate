@@ -1,6 +1,6 @@
-package com.felipeborba.webTemplate.user.repository;
+package com.felipeborba.webTemplate.repository;
 
-import com.felipeborba.webTemplate.user.entity.User;
+import com.felipeborba.webTemplate.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, String> {

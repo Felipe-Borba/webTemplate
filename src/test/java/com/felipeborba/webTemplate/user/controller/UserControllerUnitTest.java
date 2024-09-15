@@ -1,9 +1,10 @@
 package com.felipeborba.webTemplate.user.controller;
 
+import com.felipeborba.webTemplate.controller.UserController;
 import com.felipeborba.webTemplate.user.dto.CreateUserRequestDto;
-import com.felipeborba.webTemplate.user.entity.User;
-import com.felipeborba.webTemplate.user.entity.UserRole;
-import com.felipeborba.webTemplate.user.service.UserService;
+import com.felipeborba.webTemplate.entity.User;
+import com.felipeborba.webTemplate.entity.UserRole;
+import com.felipeborba.webTemplate.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.ResponseEntity;

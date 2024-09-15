@@ -1,7 +1,7 @@
-package com.felipeborba.webTemplate.user;
+package com.felipeborba.webTemplate.config;
 
-import com.felipeborba.webTemplate.user.entity.UserRole;
-import com.felipeborba.webTemplate.user.service.UserService;
+import com.felipeborba.webTemplate.entity.UserRole;
+import com.felipeborba.webTemplate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;

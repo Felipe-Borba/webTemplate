@@ -1,4 +1,4 @@
-package com.felipeborba.webTemplate.user.entity;
+package com.felipeborba.webTemplate.entity;
 
 public enum UserRole {
     ADMIN("admin"),

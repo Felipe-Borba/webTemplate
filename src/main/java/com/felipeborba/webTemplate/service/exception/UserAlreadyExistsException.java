@@ -1,6 +1,6 @@
-package com.felipeborba.webTemplate.user.entity.exception;
+package com.felipeborba.webTemplate.service.exception;
 
-import com.felipeborba.webTemplate.exception.ApiException;
+import com.felipeborba.webTemplate.controller.exception.ApiException;
 import org.springframework.http.HttpStatus;
 
 public class UserAlreadyExistsException extends ApiException {

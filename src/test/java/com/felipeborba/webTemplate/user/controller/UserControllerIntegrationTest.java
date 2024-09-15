@@ -2,9 +2,9 @@ package com.felipeborba.webTemplate.user.controller;
 
 import com.felipeborba.webTemplate.security.AuthorizationService;
 import com.felipeborba.webTemplate.security.TokenService;
-import com.felipeborba.webTemplate.user.entity.User;
-import com.felipeborba.webTemplate.user.repository.UserRepository;
-import com.felipeborba.webTemplate.user.service.UserService;
+import com.felipeborba.webTemplate.entity.User;
+import com.felipeborba.webTemplate.repository.UserRepository;
+import com.felipeborba.webTemplate.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
