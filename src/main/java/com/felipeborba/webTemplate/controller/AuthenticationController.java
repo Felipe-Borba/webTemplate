@@ -35,7 +35,7 @@ public class AuthenticationController {
         return ResponseEntity.ok().body(response);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<String> hello(Authentication authentication) {
         return ResponseEntity.ok().body("Hello, " + authentication.getName() + "!");
     }

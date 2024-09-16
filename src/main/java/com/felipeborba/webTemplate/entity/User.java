@@ -1,10 +1,7 @@
 package com.felipeborba.webTemplate.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,6 +9,7 @@ import java.util.Date;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_user")
@@ -41,5 +39,9 @@ public class User {
         this.login = login;
         this.password = password;
         this.role = role;
+    }
+
+    public boolean hasHole(UserRole roleName) {
+        return this.getRole().equals(roleName);
     }
 }
